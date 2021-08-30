@@ -61,7 +61,7 @@ int find_next_day (FILE *f)
 
 void get_timing (shutter *r, FILE *schedule)
 {
-  int channel = 0;
+  int tmp_min = 0, tmp_hour = 0, channel = 0, tmp_percentage = 0;
   while (channel != r->ch)
     {
       fscanf (schedule, "%*[^\n]s\n");
@@ -71,14 +71,19 @@ void get_timing (shutter *r, FILE *schedule)
         }
     }
 
-  while (fscanf (schedule, "%d:%d", &r->up.tm_hour, &r->up.tm_min) != 2)
+  while (fscanf (schedule, "%d:%d", &tmp_hour, &tmp_min) != 2)
     fscanf (schedule, "%*c");
+  r->up.tm_hour = (char )tmp_hour;
+  r->up.tm_min = (char )tmp_min;
 
-  while (fscanf (schedule, "%d:%d", &r->down.tm_hour, &r->down.tm_min) != 2)
+  while (fscanf (schedule, "%d:%d", &tmp_hour, &tmp_min) != 2)
     fscanf (schedule, "%*c");
+  r->down.tm_hour = (char )tmp_hour;
+  r->down.tm_min = (char )tmp_min;
 
-  while (fscanf (schedule, "%d", &r->percentage) != 1)
+  while (fscanf (schedule, "%d", &tmp_percentage) != 1)
     fscanf (schedule, "%*c");
+  r->percentage = (char )tmp_percentage;
 
   fscanf (schedule, "%*[^\n]s\n");
 }

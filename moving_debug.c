@@ -2,14 +2,24 @@
 // Created by lacko on 19/08/2021.
 //
 
-#include "mozgatas_demo.h"
+#include "moving_debug.h"
 #include <stdio.h>
 
-void set_ch (shutter *r)
+void set_ch (shutter *r, byte *channel)
 {
-  reset ();
-  for (int i = 1; i <= r->ch; ++i)
-    printf ("ch. %d\n", i);
+  while (*channel != r->ch)
+    {
+      if (*channel > r->ch)
+        {
+          press_button (prev);
+          (*channel)--;
+        }
+      else if (*channel < r->ch)
+        {
+          press_button (next);
+          (*channel)++;
+        }
+    }
 }
 
 //reset láb active low, de negatív logikával van bekötve
@@ -34,4 +44,11 @@ void press_button (buttons b)
       break;
       default: printf ("hiba\n");
     }
+}
+
+void lower (shutter *r)
+{
+  press_button (down);
+  printf ("sleeping %d usecs", r->percentage * r->rolltime_down * 10000);
+  press_button (stop);
 }

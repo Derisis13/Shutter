@@ -7,19 +7,19 @@
 #include <stdlib.h>
 #include <unistd.h> //project is to be compiled to openwrt
 
-void set_ch (shutter *r, byte *ch)
+void set_ch (shutter *r, byte *channel)
 {
-  while (*ch != r->ch)
+  while (*channel != r->ch)
     {
-      if (*ch > r->ch)
+      if (*channel > r->ch)
         {
           press_button (prev);
-          *ch--;
+          (*channel)--;
         }
-      else if (*ch < r->ch)
+      else if (*channel < r->ch)
         {
           press_button (next);
-          *ch++;
+          (*channel)++;
         }
     }
 }
@@ -40,16 +40,16 @@ void reset ()
 //doing positive logic as button GPIOs are 0 on startup
 void press_button (buttons b)
 {
-  char *fname = calloc (29, 1);
+  char *fname = calloc (29, sizeof (char ));
   sprintf (fname, "/sys/class/gpio/gpio%d/value", b);
   FILE *gpio = fopen (fname, "w");
-  usleep (200000);
   fprintf (gpio, "0");
   fclose (gpio);
   gpio = fopen (fname, "w");
   usleep (200000);
   fprintf (gpio, "1");
   fclose (gpio);
+  usleep (200000);
 }
 
 void lower (shutter *r)

@@ -1,5 +1,5 @@
 #include "timing.h"
-#include "moving.h"
+#include "moving_debug.h"
 #include <stdio.h>
 #define FILEPATH "menetrend.txt"
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -56,7 +56,6 @@ int main ()
       set_ch (&ercsi13[i], &ch);
       switch (check_timing (&ercsi13[i]))
         {
-
           case up:press_button (up);
           break;
           case stop:break;
