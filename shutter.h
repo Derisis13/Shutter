@@ -2,32 +2,31 @@
 // Created by lacko on 08/08/2021.
 //
 
-#ifndef _REDONY_H_
-#define _REDONY_H_
+#ifndef _SHUTTER_H_
+#define _SHUTTER_H_
 
 #include <time.h>
 
 typedef char byte;
 
-typedef struct ido {
+typedef struct minitime {
   byte tm_hour;
   byte tm_min;
-} ido;
+} minitime;
 
-typedef struct redony {
-  byte ch;
-  ido up;
-  ido down;
-  byte rolltime_up;     //measured in seconds
-  byte rolltime_down;   //measured in seconds
-  byte percentage;
-} redony;
+typedef struct shutter {
+  byte ch;                //assigned channel on the connected remote
+  minitime up;            //time of raise
+  minitime down;          //time of lowering
+  byte rolltime_down;     //measured in seconds, measured when the shutter is rolling down (usually faster than rolling up)
+  byte percentage;        //the percentage to which the shutter is to be lowered
+} shutter;
 
 typedef enum buttons {
-  up = 17,
+  up = 17,      //I'm lucky, I found 5 consecutively numbered gpios, starting with gpio 17
   stop,
   down,
   prev,
   next
 } buttons;
-#endif //_REDONY_H_
+#endif //_SHUTTER_H_

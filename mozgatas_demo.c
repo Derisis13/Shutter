@@ -5,17 +5,11 @@
 #include "mozgatas_demo.h"
 #include <stdio.h>
 
-void set_ch (redony *r)
+void set_ch (shutter *r)
 {
   reset ();
   for (int i = 1; i <= r->ch; ++i)
     printf ("ch. %d\n", i);
-}
-
-
-void export ()
-{
-  printf ("gpios exported\n");
 }
 
 //reset láb active low, de negatív logikával van bekötve

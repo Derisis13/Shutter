@@ -2,10 +2,9 @@
 // Created by lacko on 08/08/2021.
 //
 
-#include "idozites.h"
+#include "timing.h"
 #include <string.h>
 
-//function, which navigates the file, and stops at the label of today.
 int find_today (FILE *schedule)
 {
   time_t t = time (NULL);
@@ -17,31 +16,31 @@ int find_today (FILE *schedule)
       switch (now->tm_wday)
         {
           case 0:
-            if (strcasecmp (buffer, "VAS") == 0)
+            if (strcmp (buffer, "VAS") == 0)
               return 1;
           break;
           case 1:
-            if (strcasecmp (buffer, "HET") == 0)
+            if (strcmp (buffer, "HET") == 0)
               return 1;
           break;
           case 2:
-            if (strcasecmp (buffer, "KED") == 0)
+            if (strcmp (buffer, "KED") == 0)
               return 1;
           break;
           case 3:
-            if (strcasecmp (buffer, "SZE") == 0)
+            if (strcmp (buffer, "SZE") == 0)
               return 1;
           break;
           case 4:
-            if (strcasecmp (buffer, "CSU") == 0)
+            if (strcmp (buffer, "CSU") == 0)
               return 1;
           break;
           case 5:
-            if (strcasecmp (buffer, "PEN") == 0)
+            if (strcmp (buffer, "PEN") == 0)
               return 1;
           break;
           case 6:
-            if (strcasecmp (buffer, "SZO") == 0)
+            if (strcmp (buffer, "SZO") == 0)
               return 1;
           break;
         }
@@ -77,13 +76,16 @@ void get_timing (shutter *r, FILE *schedule)
 
   while (fscanf (schedule, "%d:%d", &r->down.tm_hour, &r->down.tm_min) != 2)
     fscanf (schedule, "%*c");
-  fscanf (schedule, "%*[^\n]s\n");
 
+  while (fscanf (schedule, "%d", &r->percentage) != 1)
+    fscanf (schedule, "%*c");
+
+  fscanf (schedule, "%*[^\n]s\n");
 }
 
 buttons check_timing (shutter *r)
 {
-  if ((r->up.tm_hour == r->down.tm_hour) && (r->up.tm_min == r->down.tm_min))
+  if (r->percentage == 0)
     return stop;
   time_t t = time (NULL);
   struct tm *now = localtime (&t);
