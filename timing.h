@@ -4,13 +4,13 @@
 #ifndef _IDOZITES_H_
 #define _IDOZITES_H_
 
-#include "redony.h"
+#include "shutter.h"
 #include <time.h>
 #include <stdio.h>
 
-void get_timing (redony *r, FILE *schedule);
+void get_timing (shutter *r, FILE *schedule);
 
-buttons check_timing (redony *r);
+buttons check_timing (shutter *r);
 
 int find_today (FILE *schedule);
 

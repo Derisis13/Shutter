@@ -60,7 +60,7 @@ int find_next_day (FILE *f)
   return 0;
 }
 
-void get_timing (redony *r, FILE *schedule)
+void get_timing (shutter *r, FILE *schedule)
 {
   int channel = 0;
   while (channel != r->ch)
@@ -81,7 +81,7 @@ void get_timing (redony *r, FILE *schedule)
 
 }
 
-buttons check_timing (redony *r)
+buttons check_timing (shutter *r)
 {
   if ((r->up.tm_hour == r->down.tm_hour) && (r->up.tm_min == r->down.tm_min))
     return stop;

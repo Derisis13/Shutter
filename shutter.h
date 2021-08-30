@@ -7,16 +7,20 @@
 
 #include <time.h>
 
+typedef char byte;
 
 typedef struct ido {
-  int tm_hour;
-  int tm_min;
+  byte tm_hour;
+  byte tm_min;
 } ido;
 
 typedef struct redony {
-  int ch;
+  byte ch;
   ido up;
   ido down;
+  byte rolltime_up;     //measured in seconds
+  byte rolltime_down;   //measured in seconds
+  byte percentage;
 } redony;
 
 typedef enum buttons {
