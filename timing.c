@@ -73,36 +73,34 @@ void get_timing (shutter *r, FILE *schedule)
 
   while (fscanf (schedule, "%d:%d", &tmp_hour, &tmp_min) != 2)
     fscanf (schedule, "%*c");
-  r->up.tm_hour = (char )tmp_hour;
-  r->up.tm_min = (char )tmp_min;
+  r->up.tm_hour = (char) tmp_hour;
+  r->up.tm_min = (char) tmp_min;
 
   while (fscanf (schedule, "%d:%d", &tmp_hour, &tmp_min) != 2)
     fscanf (schedule, "%*c");
-  r->down.tm_hour = (char )tmp_hour;
-  r->down.tm_min = (char )tmp_min;
+  r->down.tm_hour = (char) tmp_hour;
+  r->down.tm_min = (char) tmp_min;
 
   while (fscanf (schedule, "%d", &tmp_percentage) != 1)
     fscanf (schedule, "%*c");
-  r->percentage = (char )tmp_percentage;
+  r->percentage = (char) tmp_percentage;
 
   fscanf (schedule, "%*[^\n]s\n");
 }
 
-buttons check_timing (shutter *r)
+buttons check_timing (shutter *r, struct tm *now)
 {
   if (r->percentage == 0)
     return stop;
-  time_t t = time (NULL);
-  struct tm *now = localtime (&t);
-  if ((r->down.tm_hour == now->tm_hour) && (r->down.tm_min == now->tm_min))
+
+  if ((r->down.tm_hour == now->tm_hour) && (r->down.tm_min == (now->tm_min)))
     {
       return down;
     }
 
-  if ((r->up.tm_hour == now->tm_hour) && (r->up.tm_min == now->tm_min))
+  if ((r->up.tm_hour == now->tm_hour) && (r->up.tm_min == (now->tm_min)))
     {
       return up;
     }
-
   return stop;
 }

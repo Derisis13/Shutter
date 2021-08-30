@@ -12,7 +12,7 @@
 void get_timing (shutter *r, FILE *schedule);
 
 //checks whether it's time to raise/lower and acts accordingly
-buttons check_timing (shutter *r);
+buttons check_timing (shutter *r, struct tm* now);
 
 //checks the schedule file and sets the readhead to today's label
 int find_today (FILE *schedule);
