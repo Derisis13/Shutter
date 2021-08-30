@@ -55,6 +55,6 @@ void press_button (buttons b)
 void lower (shutter *r)
 {
   press_button (down);
-  usleep (r->percentage * r->rolltime_down * 100000);
+  usleep (r->percentage * r->rolltime_down * 10000);
   press_button (stop);
 }
