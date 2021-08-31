@@ -50,6 +50,7 @@ void press_button (buttons b)
   fprintf (gpio, "1");
   fclose (gpio);
   usleep (200000);
+  free (fname);
 }
 
 void lower (shutter *r)

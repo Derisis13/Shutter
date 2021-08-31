@@ -17,4 +17,4 @@ void reset ();
 
 //lowers the shutter to the percentage level described in the shutter structure
 void lower (shutter *r);
-#endif //_MOZGATAS_H_
+#endif _MOZGATAS_H_
