@@ -5,8 +5,6 @@
 #ifndef _SHUTTER_H_
 #define _SHUTTER_H_
 
-#include <time.h>
-
 typedef char byte;
 
 typedef struct minitime {
