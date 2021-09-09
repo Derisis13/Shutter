@@ -1,4 +1,5 @@
 cmake-build-debug/
 DIR-600/
 WNR1000/
+.idea/
 CMakeLists.txt
