@@ -46,10 +46,10 @@ void press_button (buttons b)
   fprintf (gpio, "0");
   fclose (gpio);
   gpio = fopen (fname, "w");
-  usleep (200000);
+  usleep (150000);
   fprintf (gpio, "1");
   fclose (gpio);
-  usleep (200000);
+  usleep (250000);
   free (fname);
 }
 
