@@ -7,4 +7,4 @@ add_executable(redony main.c timing.c timing.h
 #        moving.c moving.h
         shutter.h
         moving_debug.c moving_debug.h
-        )
+        shutter.c)

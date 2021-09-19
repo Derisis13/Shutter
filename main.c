@@ -2,6 +2,8 @@
 #include "moving.h"
 #include <stdio.h>
 #define FILEPATH "menetrend.txt"
+#define N_of_Shutters 7
+#define rolltimelist {23, 23, 23, 23, 16, 23, 33}
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * SHUTTER AUTOMATA
  * -----------------
@@ -14,39 +16,26 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 int main ()
 {
-  shutter ercsi13[] = {
-      {
-          1, 0, 0, 0, 0, 23, 0 //fiúszoba
-      },
-      {
-          2, 0, 0, 0, 0, 23, 0 //lányszoba
-      },
-      {
-          3, 0, 0, 0, 0, 23, 0 //nappali bal
-      },
-      {
-          4, 0, 0, 0, 0, 23, 0 //nappali jobb
-      },
-      {
-          5, 0, 0, 0, 0, 16, 0 //konyha
-      },
-      {
-          6, 0, 0, 0, 0, 23, 0 //szülői szoba
-      },
-      {
-          7, 0, 0, 0, 0, 33, 0 //előtető (lehúzás = kieresztés, felhúzás = behúzás)
-      }
-  };
+  //set up linked list of shutters
+  shutter *ercsi13 = NULL;
+  byte rolltimes[] = rolltimelist;
+  for (int i = 0; i < N_of_Shutters; ++i)
+    {
+      shutter *tmpshutter = create_shutter ((byte)(i + 1), rolltimes[i]);
+      append_shutter (&ercsi13, tmpshutter);
+    }
+
   //get the time of launch
   time_t t = time (NULL);
   struct tm *now = localtime (&t);
 
   //scan the schedule
-  for (int i = 0; i < 7; ++i)
+
+  for (shutter *tmp = ercsi13; tmp != NULL; tmp = tmp->next)
     {
       FILE *schedule = fopen (FILEPATH, "r");
       find_today (schedule);
-      get_timing (&ercsi13[i], schedule);
+      get_timing (tmp, schedule);
       fclose (schedule);
     }
 
@@ -54,19 +43,20 @@ int main ()
   byte ch = 1;  //remote defaults to ch 1
 
   //check timings and act accordingly
-  for (int i = 0; i < 7; ++i)
+  for (shutter *tmp = ercsi13; tmp != NULL; tmp = tmp->next)
     {
-      set_ch (&ercsi13[i], &ch);
-      switch (check_timing (&ercsi13[i], now))
+      set_ch (tmp, &ch);
+      switch (check_timing (tmp, now))
         {
           case up:press_button (up);
           break;
           case stop:break;
-          case down:lower (&ercsi13[i]);
+          case down:lower (tmp);
           break;
           case prev:
           case next:break;
         };
     }
+  free_shutters (ercsi13);
   return 0;
 }

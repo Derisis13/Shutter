@@ -18,6 +18,7 @@ typedef struct shutter {
   minitime down;          //time of lowering
   byte rolltime_down;     //measured in seconds, measured when the shutter is rolling down (usually faster than rolling up)
   byte percentage;        //the percentage to which the shutter is to be lowered
+  struct shutter *next;
 } shutter;
 
 typedef enum buttons {
@@ -27,4 +28,8 @@ typedef enum buttons {
   prev,
   next
 } buttons;
+
+shutter * create_shutter (byte ch, byte rolltime_down);
+void append_shutter (shutter **head, shutter *new_shutter);
+void free_shutters (shutter * head);
 #endif //_SHUTTER_H_
