@@ -16,31 +16,31 @@ int find_today (FILE *schedule)
       switch (now->tm_wday)
         {
           case 0:
-            if (strcmp (buffer, "VAS") == 0)
+            if (strcmp (buffer, "SUN") == 0)
               return 1;
           break;
           case 1:
-            if (strcmp (buffer, "HET") == 0)
+            if (strcmp (buffer, "MON") == 0)
               return 1;
           break;
           case 2:
-            if (strcmp (buffer, "KED") == 0)
+            if (strcmp (buffer, "TUE") == 0)
               return 1;
           break;
           case 3:
-            if (strcmp (buffer, "SZE") == 0)
+            if (strcmp (buffer, "WED") == 0)
               return 1;
           break;
           case 4:
-            if (strcmp (buffer, "CSU") == 0)
+            if (strcmp (buffer, "THU") == 0)
               return 1;
           break;
           case 5:
-            if (strcmp (buffer, "PEN") == 0)
+            if (strcmp (buffer, "FRI") == 0)
               return 1;
           break;
           case 6:
-            if (strcmp (buffer, "SZO") == 0)
+            if (strcmp (buffer, "SAT") == 0)
               return 1;
           break;
         }
