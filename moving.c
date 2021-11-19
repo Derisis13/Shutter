@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <unistd.h> //project is to be compiled to openwrt
 
+#define RESETPIN "/sys/class/gpio/gpio2/value"
+
 void set_ch (shutter *r, byte *channel)
 {
   while (*channel != r->ch)
@@ -27,11 +29,11 @@ void set_ch (shutter *r, byte *channel)
 //doing negative logic as reset is active low and GPIO2 is 1 on startup
 void reset ()
 {
-  FILE *gpio2 = fopen ("/sys/class/gpio/gpio2/value", "w");
+  FILE *gpio2 = fopen (RESETPIN, "w");
   fprintf (gpio2, "0");
   fclose (gpio2);
   sleep (1);
-  gpio2 = fopen ("/sys/class/gpio/gpio2/value", "w");
+  gpio2 = fopen (RESETPIN, "w");
   fprintf (gpio2, "1");
   fclose (gpio2);
   sleep (3);
