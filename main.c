@@ -12,8 +12,22 @@
  * Raise and lowering times are defined in the rolltimelist macro. The N_of_Shutters macro contains the f
  * well as the desired lowering percentages are read from a local file (schedule.txt), and
  * are executed; the schedule contains one full week.
- * .
- * The program is compiled to openwrt 19.07.8; HW: D-Link DIR-600 rev.B6E
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * This file is part of Shutter.
+ *
+ * Shutter is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Shutter is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Shutter.  If not, see <https://www.gnu.org/licenses/>.
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 int main ()
 {
