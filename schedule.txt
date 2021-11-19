@@ -1,0 +1,78 @@
+Shutter schedule example by Derisis13:
+
+SUNDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|8:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|8:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+MONDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|7:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|7:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+TUESDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|7:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|7:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+WEDNESDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|7:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|7:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+THURSDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|7:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|7:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+FRIDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|7:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|7:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
+
+SATURDAY
+|name of shutter|channel	|raising time	|lowering time	|rolldown %	|
+|---------------|---------------|---------------|---------------|---------------|
+|livingroom 1	|4		|6:00		|21:00		|75		|
+|livingroom 2	|3		|6:00		|21:00		|75		|
+|bedroom 1	|1		|9:00		|21:00		|65		|
+|bedroom 2	|2		|0:00		|0:00		|0		|
+|master bedroom	|6		|8:00		|21:00		|60		|
+|kitchen	|5		|6:00		|21:00		|100		|
+|terrace shade	|7		|0:00		|0:00		|0		|
