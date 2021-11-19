@@ -1,17 +1,18 @@
 #include "timing.h"
 #include "moving.h"
 #include <stdio.h>
-#define FILEPATH "menetrend.txt"
+#define FILEPATH "schedule.txt"
 #define N_of_Shutters 7
 #define rolltimelist {23, 23, 23, 23, 16, 23, 33}
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * SHUTTER AUTOMATA
  * -----------------
- * C program for automating remote controlled shutters via an openwrt router and a paired remote.
- * This program needs to be called by Cron in few minute intervals.
- * Raise and lowering times as well as the desired lowering percentage is read from a local file (menetrend.txt), and is
- * executed; the schedule contains one full week.
- * The program uses GPIO2 for resetting the remote and GPIO17-21 for controlling the remote.
+ * C program for automating remote controlled shutters via an embedded linux platform and a paired remote.
+ * This program needs to be called by a scheduler (like Cron) in few minute intervals.
+ * Raise and lowering times are defined in the rolltimelist macro. The N_of_Shutters macro contains the f
+ * well as the desired lowering percentages are read from a local file (schedule.txt), and
+ * are executed; the schedule contains one full week.
+ * .
  * The program is compiled to openwrt 19.07.8; HW: D-Link DIR-600 rev.B6E
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 int main ()
