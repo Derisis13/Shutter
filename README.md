@@ -45,6 +45,7 @@ for i in $@; do
  echo $i > export; echo out >gpio$i/direction; echo 1 > gpio$i/value
 done
 ```
+You'll need to replace the numbers '1 2 17 18 19 20 21' in line 3 with the number of the GPIOs you wish to use.
 
 ## NTP
 In order to have the exact local time, you'll have to make sure you are connected to a working NTP server. 
